@@ -1,0 +1,89 @@
+<div class="container mt-5">
+  <div class="row">
+    <!-- العنوان الرئيسي -->
+    <h1 class="main-title text-center mb-4">Shopping</h1>
+
+    <!-- القائمة الجانبية -->
+    <section class="col-md-3">
+      <div class="sidebar p-4 shadow-sm rounded bg-light">
+        <!-- الفرز -->
+        <h4 class="section-title mb-3 text-primary">Sorting</h4>
+        <div class="custom-select-wrapper mb-4">
+          <select
+            #sortSelected
+            class="form-select shadow-sm"
+            (change)="SortingByPrice($event)"
+          >
+            @for (item of SortingOption; track $index) {
+            <option value="{{ item.value }}">{{ item.name }}</option>
+            }
+          </select>
+        </div>
+
+        <!-- الفئات -->
+        <h4 class="section-title mb-3 text-primary">Categories</h4>
+        <ul class="list-group custom-list-group">
+          @for (item of LstCategory; track $index) {
+          <li
+            [class.active]="item.id == ProductParam.CategoryId"
+            (click)="Selectedid(item.id)"
+            class="list-group-item custom-list-item"
+          >
+            {{ item.name }}
+          </li>
+          }
+        </ul>
+      </div>
+    </section>
+
+    <!-- المحتوى الرئيسي -->
+    <section class="col-md-9">
+      <div
+        class="d-flex justify-content-between align-items-center mb-4 p-3 bg-light shadow-sm rounded"
+      >
+        <!-- عرض عدد العناصر -->
+        <div class="paging-container">
+          <span class="text-muted">Showing {{LstProduct.length}} of {{ProductParam.PageNumber * ProductParam.pageSize}}</span>
+        </div>
+
+        <!-- شريط البحث -->
+        <div class="search-container">
+          <div class="input-group search-bar">
+            <input
+              #search
+              (keyup)="OnSearch(search.value)"
+              (keyup.entar)="OnSearch(search.value)"
+              type="text"
+              class="form-control shadow-sm"
+              placeholder="Search..."
+            />
+            <button
+              (click)="OnSearch(search.value)"
+              class="btn btn-danger shadow-sm"
+            >
+              Search
+            </button>
+            <button (click)="ResetValue()" class="btn btn-dark shadow-sm">
+              Reset
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- قائمة المنتجات -->
+      <div class="row g-4">
+        @for (item of LstProduct; track $index) {
+        <ng-container>
+          <app-shop-item
+            class="product-item col-lg-4 col-md-6"
+            [Product]="item"
+          ></app-shop-item>
+        </ng-container>
+        }
+        <div class="-flex justify-content-center align-items-center mt-5">
+          <app-pagnation [PageSize]="ProductParam.pageSize" [TotalCount]="TotalCount" (PageChange)="OnPageChange($event)"></app-pagnation>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

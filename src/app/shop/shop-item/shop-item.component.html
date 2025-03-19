@@ -1,0 +1,63 @@
+@if(Product) {
+<div
+  class="card h-100 shadow-sm"
+  *ngIf="Product && Product.photos && Product.photos.length"
+>
+  <img
+    src="https://localhost:7247/{{ Product?.photos[0]?.imageName }}"
+    class="card-img-top"
+    alt="Product Image"
+  />
+  <div class="card-body">
+    <!-- الصور المصغرة -->
+    <div class="thumbnails mb-3 d-flex justify-content-start gap-2">
+      @for (item of Product.photos; track $index) {
+      <img
+        src="https://localhost:7247/{{ item.imageName }}"
+        alt="Thumbnail"
+        class="thumbnails-img small-img rounded"
+      />
+      }
+    </div>
+
+    <!-- عنوان المنتج -->
+    <h5 class="card-title">{{ Product.name }}</h5>
+
+    <!-- وصف المنتج -->
+    <p class="card-text">{{ Product.description }}</p>
+
+    <!-- السعر -->
+    <p class="price">
+      <span class="old-price text-muted text-decoration-line-through">{{
+        Product.oldPrice | currency
+      }}</span>
+      <span class="new-price text-success">{{
+        Product.newPrice | currency
+      }}</span>
+    </p>
+
+    <!-- التقييم -->
+    <div class="rating mb-3">
+      <i class="fa fa-star text-warning"></i>
+      <i class="fa fa-star text-warning"></i>
+      <i class="fa fa-star text-warning"></i>
+      <i class="fa fa-star text-warning"></i>
+      <i class="fa fa-star-half-alt text-warning"></i>
+      <span class="text-muted ms-2">(4.5)</span>
+    </div>
+
+    <!-- الأزرار -->
+    <div class="d-flex justify-content-between align-items-start">
+      <button class="btn btn-dark">
+        <i class="fa fa-shopping-cart"></i> Add to Cart
+      </button>
+      <button
+        routerLink="/product-details/{{ Product.id }}"
+        class="btn btn-success"
+      >
+        <i class="fa fa-info-circle"></i> Details
+      </button>
+    </div>
+  </div>
+</div>
+}

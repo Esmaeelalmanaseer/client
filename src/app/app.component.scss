@@ -1,0 +1,5 @@
+@use "sass:color";
+$accent-color: #ff5722; // تعريف المتغير
+.my-class {
+    background-color: color.adjust($accent-color, $lightness: -10%);
+  }

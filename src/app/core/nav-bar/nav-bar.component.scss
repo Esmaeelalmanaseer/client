@@ -1,0 +1,198 @@
+
+// styles.scss
+$primary-color: #3f51b5;
+$secondary-color: #5c6bc0;
+$accent-color: #ff4081;
+$light-color: #ffffff;
+$dark-color: #212121;
+$navbar-height: 60px;
+$navbar-padding: 1rem;
+$input-border-radius: 0.5rem;
+$transition-duration: 0.3s;
+
+.navbar {
+  background: linear-gradient(45deg, $primary-color, $secondary-color);
+  padding: $navbar-padding;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  .navbar-brand {
+    .logo {
+      height: $navbar-height;
+    }
+  }
+
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        color: $light-color;
+        font-size: 1.1rem;
+        padding: 0.75rem 1rem;
+        transition: color $transition-duration ease, background-color $transition-duration ease;
+
+        &:hover {
+          color: $accent-color;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 0.5rem;
+        }
+      &.active{
+        color: $accent-color;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 0.5rem;
+      }
+      }
+    }
+  }
+
+  .form-inline {
+    .input-group {
+      .form-control {
+        border-radius: $input-border-radius 0 0 $input-border-radius;
+        border: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      }
+
+      .btn-light {
+        border-radius: 0 $input-border-radius $input-border-radius 0;
+        border: none;
+        background-color: $accent-color;
+        color: $light-color;
+        transition: background-color $transition-duration ease;
+
+        &:hover {
+          background-color: darken($accent-color, 10%);
+        }
+      }
+    }
+  }
+
+  .dropdown-menu {
+    background-color: $dark-color;
+    border-radius: 0.5rem;
+
+    a {
+      color: $light-color;
+      padding: 0.75rem 1rem;
+      transition: background-color $transition-duration ease;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar {
+    padding: 0 15px;
+
+    .form-inline {
+      max-width: none;
+    }
+  }
+}
+
+
+/* تخصيص الـ Navbar */
+.navbar {
+  background-color: #2c3e50; /* لون خلفية داكن */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل */
+  padding: 0.5rem 1rem; /* تعديل الحشوة */
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ecf0f1 !important; /* لون النص */
+}
+
+.navbar-brand img.logo {
+  height: 40px; /* حجم الشعار */
+  margin-right: 10px; /* مسافة بين الشعار والنص */
+}
+
+.navbar-nav .nav-link {
+  color: #ecf0f1 !important; /* لون النص */
+  font-size: 1.1rem;
+  margin: 0 10px; /* مسافة بين العناصر */
+  transition: color 0.3s ease; /* تأثير انتقالي */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #1abc9c !important; /* لون النص عند التمرير */
+}
+
+/* تخصيص زر البحث */
+.input-group {
+  width: 300px; /* عرض مربع البحث */
+}
+
+.input-group .form-control {
+  border-radius: 20px 0 0 20px; /* حواف دائرية */
+  border: none;
+}
+
+.input-group-append .btn {
+  border-radius: 0 20px 20px 0; /* حواف دائرية */
+  background-color: #1abc9c; /* لون الزر */
+  color: #fff; /* لون النص */
+  border: none;
+  transition: background-color 0.3s ease; /* تأثير انتقالي */
+}
+
+.input-group-append .btn:hover {
+  background-color: #16a085; /* لون الزر عند التمرير */
+}
+
+/* تخصيص الأيقونات */
+.material-icons {
+  font-size: 1.5rem; /* حجم الأيقونات */
+  vertical-align: middle; /* محاذاة عمودية */
+  margin-right: 5px; /* مسافة بين الأيقونة والنص */
+}
+
+/* تخصيص القائمة المنسدلة */
+.dropdown-menu {
+  background-color: #34495e; /* لون الخلفية */
+  border: none;
+  border-radius: 10px; /* حواف دائرية */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل */
+}
+
+.dropdown-item {
+  color: #ecf0f1 !important; /* لون النص */
+  font-size: 1rem;
+  transition: background-color 0.3s ease; /* تأثير انتقالي */
+}
+
+.dropdown-item:hover {
+  background-color: #1abc9c; /* لون الخلفية عند التمرير */
+  color: #fff !important; /* لون النص */
+}
+
+
+/* تأثيرات تفاعلية */
+.navbar-brand:hover {
+  transform: scale(1.05); /* تكبير الشعار عند التمرير */
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #1abc9c; /* لون الخط */
+  transition: width 0.3s ease; /* تأثير انتقالي */
+}
+
+.nav-link:hover::after {
+  width: 100%; /* توسيع الخط عند التمرير */
+}

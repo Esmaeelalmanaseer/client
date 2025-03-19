@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { error } from 'console';
+import { __values } from 'tslib';
+import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +10,12 @@ import { Component } from '@angular/core';
   standalone: false,
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+  constructor(){}
+
+ 
+
+  ngOnInit(): void {
+  }
   title = 'client';
 }
