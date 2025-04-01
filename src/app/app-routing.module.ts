@@ -5,8 +5,16 @@ import { HomeComponent } from './Home/home.component';
 import { ProductDetailsComponent } from './shop/product-details/product-details.component';
 const routes: Routes = [
   {path:'',component:HomeComponent},
-  {path:'shop',component:ShopComponent},
-  {path:'product-details/:id',component:ProductDetailsComponent},
+  {
+    path: 'shop',
+    loadChildren: () => import('./shop/shop.module').then((m) => m.ShopModule), 
+    
+  },
+  {
+    path: 'basket',
+    loadChildren: () => import('./basket/basket.module').then((m) => m.BasketModule), 
+    
+  },
   {path:'**',redirectTo:'',pathMatch:'full'}
 ];
 
