@@ -48,11 +48,11 @@
 
     <!-- الأزرار -->
     <div class="d-flex justify-content-between align-items-start">
-      <button class="btn btn-dark">
+      <button (click)="SetBasketValue()" class="btn btn-dark">
         <i class="fa fa-shopping-cart"></i> Add to Cart
       </button>
       <button
-        routerLink="/product-details/{{ Product.id }}"
+        routerLink="/product-details/{{Product.id}}"
         class="btn btn-success"
       >
         <i class="fa fa-info-circle"></i> Details

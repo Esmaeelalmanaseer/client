@@ -15,6 +15,11 @@ const routes: Routes = [
     loadChildren: () => import('./basket/basket.module').then((m) => m.BasketModule), 
     
   },
+  {
+    path: 'cheakout',
+    loadChildren: () => import('./cheakout/cheakout.module').then((m) => m.CheakoutModule), 
+    
+  },
   {path:'**',redirectTo:'',pathMatch:'full'}
 ];
 

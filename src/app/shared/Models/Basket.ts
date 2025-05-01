@@ -10,11 +10,18 @@ export interface IBasket {
     quantity: number
     image: string
     price: number
-    category: string
+    category: string,
+    description:string
   }
 
   export class Basket implements IBasket{
       id = uuidv4()
-      basketItems: IBasketItem[]
+      basketItems: IBasketItem[]=[]
+  }
 
+  export interface IBasketTotal
+  {
+    shipping:number;
+    subtotal:number;
+    total:number;
   }
